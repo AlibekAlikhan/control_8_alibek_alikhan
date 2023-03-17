@@ -1,15 +1,20 @@
 {% extends "base.html" %}
 {% block title %}Detail{% endblock %}
 {% block navbar %}
-<div class="navbar">
-<h2><a href="{% url 'create_article' %}" style="padding: 50px">Add tasks</a></h2>
-<h2><a href="{% url 'index_article' %}"  style="margin: 50px">Home</a></h2>
-    <h2><a href="{% url 'article_delit' task.pk%}">Delete</a></h2>
-    <h2><a href="{% url 'article_update' task.pk%}" style="margin: 50px">Update</a></h2>
-</div>
+    <div class="navbar">
+        <a class="btn btn-primary" href="{% url 'index_article' %}" role="button" style="margin-right: 20px">Home</a>
+        {% if user.is_authenticated %}
+            <a class="btn btn-primary" href="{% url 'create_article' %}" role="button" style="margin-right: 20px">Add
+                tasks</a>
+            <a class="btn btn-primary" href="{% url 'article_delit' task.pk %}" role="button"
+               style="margin-right: 20px">Delete</a>
+            <a class="btn btn-primary" href="{% url 'article_update' task.pk %}" role="button"
+               style="margin-right: 20px">Update</a>
+        {% endif %}
+    </div>
 {% endblock %}
 {% block content %}
-    <h2>{{task.status}}</h2>
+    <h2>{{ task.status }}</h2>
     <h2>{% for teg in task.teg.all %} {{ teg }} {% endfor %}</h2>
-    <h2>{{task.detail_text}}</h2>
+    <h2>{{ task.detail_text }}</h2>
 {% endblock %}

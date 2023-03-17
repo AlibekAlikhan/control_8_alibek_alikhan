@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, TemplateView, UpdateView, DeleteView
@@ -8,7 +9,7 @@ from webapp.models import Project
 from webapp.models import Task
 
 
-class ProjectCreateView(CreateView):
+class ProjectCreateView(LoginRequiredMixin, CreateView):
     template_name = "project_create.html"
     model = Project
     form_class = ProjectForm
@@ -31,7 +32,7 @@ class ProjectView(ListView):
         return Project.objects.exclude(iis_deleted=True)
 
 
-class ProjectUpdateView(UpdateView):
+class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     model = Project
     template_name = 'update_project.html'
     form_class = ProjectForm
@@ -41,7 +42,7 @@ class ProjectUpdateView(UpdateView):
         return reverse_lazy('detail_project', kwargs={'pk': self.object.pk})
 
 
-class ProjectDeleteView(DeleteView):
+class ProjectDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'delit_project.html'
     model = Project
     context_object_name = 'project'

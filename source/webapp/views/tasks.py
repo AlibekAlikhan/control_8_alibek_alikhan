@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
@@ -16,7 +17,7 @@ class ArticleView(ListView):
     model = Task
     context_object_name = "tasks"
     ordering = ['-create_at']
-    paginate_by = 3
+    paginate_by = 10
 
     def get(self, request, *args, **kwargs):
         self.form = self.get_search_form()
@@ -46,7 +47,7 @@ class ArticleView(ListView):
         return None
 
 
-class ArticleCreateView(CreateView):
+class ArticleCreateView(LoginRequiredMixin, CreateView):
     template_name = "task_create.html"
     model = Task
     form_class = ArticleForm
@@ -55,7 +56,7 @@ class ArticleCreateView(CreateView):
         return reverse_lazy('detail_view', kwargs={'pk': self.object.pk})
 
 
-class ArticleUpdateView(UpdateView):
+class ArticleUpdateView(LoginRequiredMixin, UpdateView):
     model = Task
     template_name = "task_update.html"
     form_class = ArticleForm
@@ -74,7 +75,7 @@ class ArticleDetailView(TemplateView):
         return context
 
 
-class ArticleDeleteView(DeleteView):
+class ArticleDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'delete_confirm.html'
     model = Task
     context_object_name = 'task'

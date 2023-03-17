@@ -2,9 +2,11 @@
 {% block title %}Home{% endblock %}
 {% block navbar %}
 <div class="navbar">
-    <a href="article/create" style="padding-right: 20px">Add tasks</a>
-    <a href="{% url 'create_project' %}" style="padding-right: 20px">Add project</a>
-<h2><a href="{% url 'index_article' %}"  style="margin: 50px">Задачи</a></h2>
+<a class="btn btn-primary" href="{% url 'index_article' %}" role="button" style="margin-right: 20px">Задачи</a>
+ {% if user.is_authenticated %}
+     <a class="btn btn-primary" href="{% url 'create_article' %}" role="button" style="margin-right: 20px">Add tasks</a>
+     <a class="btn btn-primary" href="{% url 'create_project' %}" role="button" style="margin-right: 20px">Add project</a>
+{% endif %}
 </div>
 {% endblock %}
 {% block content %}

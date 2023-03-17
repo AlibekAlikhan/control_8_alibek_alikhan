@@ -1,25 +1,33 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
 {% block navbar %}
-<div class="navbar">
-    <a href="article/create" style="padding-right: 20px">Add tasks</a>
-    <a href="{% url 'create_project' %}" style="padding-right: 20px">Add project</a>
-    <a href="{% url 'project_index' %}">Project List</a>
-</div>
+    <div class="navbar">
+    <a class="btn btn-primary" href="{% url 'project_index' %}" role="button" style="margin-right: 20px">Project List</a>
+        {% if user.is_authenticated %}
+            <a class="btn btn-primary" href="{% url 'create_project' %}" role="button" style="margin-right: 20px">Add project</a>
+            <a class="btn btn-primary" href="{% url 'create_article' %}" role="button" style="margin-right: 20px">Add tasks</a>
+        {% else %}
+            <a class="btn btn-primary" href="{% url 'login' %}" role="button" style="margin-right: 20px">Войти</a>
+        {% endif %}
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Выйти">
+        </form>
+    </div>
 {% endblock %}
 {% block content %}
     {% include 'partial/search.html' %}
-{% for task in tasks %}
-<div class="card" style="margin-top: 25px">
-    <h5 class="card-header">{{task.status}}</h5>
-    <div class="card-body">
-        <h5 class="card-title">{{task.create_at}}t</h5>
-        <p class="card-text">{{task.text}}</p>
-        <a href="{% url 'detail_view' task.pk%}" class="btn btn-primary">Task detail info</a>
-    </div>
-</div>
-{% endfor %}
+    {% for task in tasks %}
+        <div class="card" style="margin-top: 25px">
+            <h5 class="card-header">{{ task.status }}</h5>
+            <div class="card-body">
+                <h5 class="card-title">{{ task.create_at }}t</h5>
+                <p class="card-text">{{ task.text }}</p>
+                <a href="{% url 'detail_view' task.pk %}" class="btn btn-primary">Task detail info</a>
+            </div>
+        </div>
+    {% endfor %}
     {% if is_paginated %}
-   {% include 'partial/paginate.html' %}
-{% endif %}
+        {% include 'partial/paginate.html' %}
+    {% endif %}
 {% endblock %}

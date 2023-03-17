@@ -2,11 +2,13 @@
 {% block title %}Detail{% endblock %}
 {% block navbar %}
 <div class="navbar">
-<h2><a href="{% url 'create_article' %}" style="padding: 50px">Add tasks</a></h2>
-<h2><a href="{% url 'project_index' %}"  style="margin: 50px">Home</a></h2>
-    <h2><a href="{% url 'index_article' %}"  style="margin: 50px">Задачи</a></h2>
-    <h2><a href="{% url 'project_update' project.pk%}" style="margin: 50px">Update</a></h2>
-<h2><a href="{% url 'project_delit' project.pk%}">Delete</a></h2>
+<a class="btn btn-primary" href="{% url 'project_index' %}" role="button" style="margin-right: 20px">Home</a>
+ {% if user.is_authenticated %}
+     <a class="btn btn-primary" href="{% url 'create_article' %}" role="button" style="margin-right: 20px">Add tasks</a>
+     <a class="btn btn-primary" href="{% url 'index_article' %}" role="button" style="margin-right: 20px">Задачи</a>
+     <a class="btn btn-primary" href="{% url 'project_update' project.pk %}" role="button" style="margin-right: 20px">Update</a>
+     <a class="btn btn-primary" href="{% url 'project_delit' project.pk %}" role="button" style="margin-right: 20px">Delete</a>
+{% endif %}
 </div>
 {% endblock %}
 {% block content %}
