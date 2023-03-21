@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse_lazy
@@ -11,7 +12,6 @@ from accounts.forms import CustomUserCreation
 from accounts.forms import UserAdd
 
 from webapp.models import Project
-
 
 
 class LoginView(TemplateView):
@@ -59,9 +59,16 @@ class RegisterView(CreateView):
         return self.render_to_response(context)
 
 
-class AddUserView(CreateView):
+class AddUserView(UserPassesTestMixin, CreateView):
     template_name = 'users.html'
     success_url = '/'
+
+    def test_func(self):
+        project_user = Project.objects.get(pk=self.kwargs.get('pk'))
+        users = project_user.users.all()
+        for i in users:
+            if self.request.user == i:
+                return self.request.user.groups.filter(name__in=['Project Manager', 'Team Lead']).exists()
 
     def get(self, request, *args, **kwargs):
         form = self.get_user_form()
@@ -81,10 +88,15 @@ class AddUserView(CreateView):
         return UserAdd(self.request.POST)
 
 
-
-class UserDeleteView(DeleteView):
+class UserDeleteView(UserPassesTestMixin, DeleteView):
     model = User
     success_url = '/'
+
+    def test_func(self):
+        project_user = Project.objects.get(pk=self.kwargs.get('pk'))
+        for i in project_user.users.all():
+            if self.request.user == i:
+                return self.request.user.groups.filter(name__in=['Project Manager', 'Team Lead']).exists()
 
     def get(self, request, *args, **kwargs):
         return self.delete(request)

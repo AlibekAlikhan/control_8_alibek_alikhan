@@ -6,7 +6,7 @@
         {% if user.is_authenticated %}
             <a class="btn btn-primary" href="{% url 'create_article' %}" role="button" style="margin-right: 20px">Add
                 tasks</a>
-            {% if perms.webapp.delete_task %}
+            {% if perms.webapp.delete_task or task.user == requesr.user %}
                 <a class="btn btn-primary" href="{% url 'article_delit' task.pk %}" role="button"
                    style="margin-right: 20px">Delete</a>
             {% endif %}

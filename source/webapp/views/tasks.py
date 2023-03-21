@@ -66,8 +66,8 @@ class ArticleUpdateView(UserPassesTestMixin, LoginRequiredMixin, UpdateView):
     context_object_name = 'task'
 
     def test_func(self):
-
-        return self.request.user.groups.filter(name__in=['Project Manager', 'Team Lead', 'Developer']).exists()
+        if self.request.user == "manager" or self.request.user == "lead":
+            return self.request.user.groups.filter(name__in=['Project Manager', 'Team Lead', 'Developer']).exists()
 
     def get_success_url(self):
         return reverse_lazy('detail_view', kwargs={'pk': self.object.pk})
