@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.core.handlers.wsgi import WSGIRequest
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
@@ -47,20 +47,27 @@ class ArticleView(ListView):
         return None
 
 
-class ArticleCreateView(LoginRequiredMixin, CreateView):
+class ArticleCreateView(UserPassesTestMixin, LoginRequiredMixin, CreateView):
     template_name = "task_create.html"
     model = Task
     form_class = ArticleForm
+
+    def test_func(self):
+        return self.request.user.groups.filter(name__in=['Project Manager', 'Team Lead', 'Developer']).exists()
 
     def get_success_url(self):
         return reverse_lazy('detail_view', kwargs={'pk': self.object.pk})
 
 
-class ArticleUpdateView(LoginRequiredMixin, UpdateView):
+class ArticleUpdateView(UserPassesTestMixin, LoginRequiredMixin, UpdateView):
     model = Task
     template_name = "task_update.html"
     form_class = ArticleForm
     context_object_name = 'task'
+
+    def test_func(self):
+
+        return self.request.user.groups.filter(name__in=['Project Manager', 'Team Lead', 'Developer']).exists()
 
     def get_success_url(self):
         return reverse_lazy('detail_view', kwargs={'pk': self.object.pk})
@@ -75,11 +82,14 @@ class ArticleDetailView(TemplateView):
         return context
 
 
-class ArticleDeleteView(LoginRequiredMixin, DeleteView):
+class ArticleDeleteView(UserPassesTestMixin, LoginRequiredMixin, DeleteView):
     template_name = 'delete_confirm.html'
     model = Task
     context_object_name = 'task'
     success_url = reverse_lazy('index_article')
+
+    def test_func(self):
+        return self.request.user.groups.filter(name__in=['Project Manager', 'Team Lead']).exists()
 
     def get(self, request, *args, **kwargs):
         return self.delete(request)

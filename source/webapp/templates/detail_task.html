@@ -6,8 +6,10 @@
         {% if user.is_authenticated %}
             <a class="btn btn-primary" href="{% url 'create_article' %}" role="button" style="margin-right: 20px">Add
                 tasks</a>
-            <a class="btn btn-primary" href="{% url 'article_delit' task.pk %}" role="button"
-               style="margin-right: 20px">Delete</a>
+            {% if perms.webapp.delete_task %}
+                <a class="btn btn-primary" href="{% url 'article_delit' task.pk %}" role="button"
+                   style="margin-right: 20px">Delete</a>
+            {% endif %}
             <a class="btn btn-primary" href="{% url 'article_update' task.pk %}" role="button"
                style="margin-right: 20px">Update</a>
         {% endif %}

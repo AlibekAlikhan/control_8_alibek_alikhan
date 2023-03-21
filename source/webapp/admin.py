@@ -2,6 +2,8 @@ from django.contrib import admin
 
 from webapp.models import Task, Status, Teg
 
+from webapp.models import Project
+
 
 # Register your models here.
 class ArticleAdmin(admin.ModelAdmin):
@@ -24,6 +26,13 @@ class TegAdmin(admin.ModelAdmin):
     readonly_fields = ["id"]
 
 
+class ProjectAdmin(admin.ModelAdmin):
+    search_fields = ["name"]
+    filter = ["name"]
+    readonly_fields = ["id"]
+
+
 admin.site.register(Status, StatusAdmin)
 admin.site.register(Teg, TegAdmin)
 admin.site.register(Task, ArticleAdmin)
+admin.site.register(Project, ProjectAdmin)

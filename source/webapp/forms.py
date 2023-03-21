@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.core.validators import MinLengthValidator, MaxLengthValidator, BaseValidator
 
@@ -44,12 +45,13 @@ class ProjectForm(forms.ModelForm):
                                required=False)
     class Meta:
         model = Project
-        fields = ("start_at", "end_at", "name", "text_project")
+        fields = ("start_at", "end_at", "name", "text_project", "users")
         labels = {
             'start_at': 'Время начала',
             'end_at': 'Время конца',
             'name': 'Название',
-            'text_project': 'Текст'
+            'text_project': 'Текст',
+            "users": "Пользователь"
         }
 
 

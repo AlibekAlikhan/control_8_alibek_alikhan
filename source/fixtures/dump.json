@@ -1,578 +1,275 @@
 [
-  {
-    "model": "webapp.task",
-    "pk": 1,
-    "fields": {
-      "status": 1,
-      "project": 1,
-      "text": "asd",
-      "detail_text": "sdfsdsfdsdasdadsd sdsdffsdsdd dsfdsfdsdfsf ds",
-      "iis_deleted": false,
-      "create_at": "2023-03-10T12:54:09.391Z",
-      "update_at": null,
-      "deleted_at": null,
-      "teg": [
-        1
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 2,
-    "fields": {
-      "status": 2,
-      "project": 2,
-      "text": "sdfsfdsfds ffgfgfhf gfhg",
-      "detail_text": "dfsds d fsfdsdfsdfdfghg fghfgghfhgfghfhgggggggggggggggg",
-      "iis_deleted": false,
-      "create_at": "2023-03-10T12:54:35.603Z",
-      "update_at": null,
-      "deleted_at": null,
-      "teg": [
-        2
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 3,
-    "fields": {
-      "status": 3,
-      "project": 3,
-      "text": "dfg",
-      "detail_text": "fdfdfgddfgghgjh ghghgghggjhghjghghghg dssfdsfdfssdsfdsd",
-      "iis_deleted": false,
-      "create_at": "2023-03-10T12:55:00.430Z",
-      "update_at": null,
-      "deleted_at": null,
-      "teg": [
-        3
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 4,
-    "fields": {
-      "status": 1,
-      "project": 1,
-      "text": "rtyr",
-      "detail_text": "hdfdsdfs gfghj hfgdsdfsfdf dasadssdadasadassada fgfgd",
-      "iis_deleted": false,
-      "create_at": "2023-03-10T12:55:47.065Z",
-      "update_at": null,
-      "deleted_at": null,
-      "teg": [
-        3
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 5,
-    "fields": {
-      "status": 2,
-      "project": 2,
-      "text": "dsdfsfdsdsdd sfdfsdsdsfsddfsf",
-      "detail_text": "sddfffffffffffffffffffffffffffffffffffffffffffffffff dddddddddddddddddddddddddddddddddddddddddddd",
-      "iis_deleted": false,
-      "create_at": "2023-03-10T12:56:21.601Z",
-      "update_at": null,
-      "deleted_at": null,
-      "teg": [
-        3
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 6,
-    "fields": {
-      "status": 3,
-      "project": 3,
-      "text": "asadas",
-      "detail_text": "fghfgfg fghhfdsfaerettytrty r fddfdfgdfgd",
-      "iis_deleted": false,
-      "create_at": "2023-03-10T12:56:44.486Z",
-      "update_at": null,
-      "deleted_at": null,
-      "teg": [
-        3
-      ]
-    }
-  },
-  {
-    "model": "webapp.status",
-    "pk": 1,
-    "fields": {
-      "name": "New"
-    }
-  },
-  {
-    "model": "webapp.status",
-    "pk": 2,
-    "fields": {
-      "name": "In Progress"
-    }
-  },
-  {
-    "model": "webapp.status",
-    "pk": 3,
-    "fields": {
-      "name": "Done"
-    }
-  },
-  {
-    "model": "webapp.teg",
-    "pk": 1,
-    "fields": {
-      "name": "Task"
-    }
-  },
-  {
-    "model": "webapp.teg",
-    "pk": 2,
-    "fields": {
-      "name": "Bug"
-    }
-  },
-  {
-    "model": "webapp.teg",
-    "pk": 3,
-    "fields": {
-      "name": "Enhancement"
-    }
-  },
-  {
-    "model": "webapp.project",
-    "pk": 1,
-    "fields": {
-      "start_at": "2023-03-02",
-      "end_at": "2023-03-03",
-      "name": "ВДВ",
-      "text_project": "ываывы ываавапвпавав вы авасчсмчсчв выв ывы2",
-      "iis_deleted": false,
-      "deleted_project_at": null
-    }
-  },
-  {
-    "model": "webapp.project",
-    "pk": 2,
-    "fields": {
-      "start_at": "2023-03-03",
-      "end_at": "2023-03-24",
-      "name": "ASD",
-      "text_project": "fd fgdgfdfdfgdf dg fdgfgfghfh gfhggdfsd",
-      "iis_deleted": false,
-      "deleted_project_at": null
-    }
-  },
-  {
-    "model": "webapp.project",
-    "pk": 3,
-    "fields": {
-      "start_at": "2023-03-22",
-      "end_at": "2023-03-25",
-      "name": "GHJ",
-      "text_project": "dfgdgd gfg hfdsdsdfsdfsdsdfsfd sdvdbvxvcxcx cvdfg",
-      "iis_deleted": false,
-      "deleted_project_at": null
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 1,
-    "fields": {
-      "name": "Can add log entry",
-      "content_type": 1,
-      "codename": "add_logentry"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 2,
-    "fields": {
-      "name": "Can change log entry",
-      "content_type": 1,
-      "codename": "change_logentry"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 3,
-    "fields": {
-      "name": "Can delete log entry",
-      "content_type": 1,
-      "codename": "delete_logentry"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 4,
-    "fields": {
-      "name": "Can view log entry",
-      "content_type": 1,
-      "codename": "view_logentry"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 5,
-    "fields": {
-      "name": "Can add permission",
-      "content_type": 2,
-      "codename": "add_permission"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 6,
-    "fields": {
-      "name": "Can change permission",
-      "content_type": 2,
-      "codename": "change_permission"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 7,
-    "fields": {
-      "name": "Can delete permission",
-      "content_type": 2,
-      "codename": "delete_permission"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 8,
-    "fields": {
-      "name": "Can view permission",
-      "content_type": 2,
-      "codename": "view_permission"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 9,
-    "fields": {
-      "name": "Can add group",
-      "content_type": 3,
-      "codename": "add_group"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 10,
-    "fields": {
-      "name": "Can change group",
-      "content_type": 3,
-      "codename": "change_group"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 11,
-    "fields": {
-      "name": "Can delete group",
-      "content_type": 3,
-      "codename": "delete_group"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 12,
-    "fields": {
-      "name": "Can view group",
-      "content_type": 3,
-      "codename": "view_group"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 13,
-    "fields": {
-      "name": "Can add user",
-      "content_type": 4,
-      "codename": "add_user"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 14,
-    "fields": {
-      "name": "Can change user",
-      "content_type": 4,
-      "codename": "change_user"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 15,
-    "fields": {
-      "name": "Can delete user",
-      "content_type": 4,
-      "codename": "delete_user"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 16,
-    "fields": {
-      "name": "Can view user",
-      "content_type": 4,
-      "codename": "view_user"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 17,
-    "fields": {
-      "name": "Can add content type",
-      "content_type": 5,
-      "codename": "add_contenttype"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 18,
-    "fields": {
-      "name": "Can change content type",
-      "content_type": 5,
-      "codename": "change_contenttype"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 19,
-    "fields": {
-      "name": "Can delete content type",
-      "content_type": 5,
-      "codename": "delete_contenttype"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 20,
-    "fields": {
-      "name": "Can view content type",
-      "content_type": 5,
-      "codename": "view_contenttype"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 21,
-    "fields": {
-      "name": "Can add session",
-      "content_type": 6,
-      "codename": "add_session"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 22,
-    "fields": {
-      "name": "Can change session",
-      "content_type": 6,
-      "codename": "change_session"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 23,
-    "fields": {
-      "name": "Can delete session",
-      "content_type": 6,
-      "codename": "delete_session"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 24,
-    "fields": {
-      "name": "Can view session",
-      "content_type": 6,
-      "codename": "view_session"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 25,
-    "fields": {
-      "name": "Can add teg",
-      "content_type": 7,
-      "codename": "add_teg"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 26,
-    "fields": {
-      "name": "Can change teg",
-      "content_type": 7,
-      "codename": "change_teg"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 27,
-    "fields": {
-      "name": "Can delete teg",
-      "content_type": 7,
-      "codename": "delete_teg"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 28,
-    "fields": {
-      "name": "Can view teg",
-      "content_type": 7,
-      "codename": "view_teg"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 29,
-    "fields": {
-      "name": "Can add task",
-      "content_type": 8,
-      "codename": "add_task"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 30,
-    "fields": {
-      "name": "Can change task",
-      "content_type": 8,
-      "codename": "change_task"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 31,
-    "fields": {
-      "name": "Can delete task",
-      "content_type": 8,
-      "codename": "delete_task"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 32,
-    "fields": {
-      "name": "Can view task",
-      "content_type": 8,
-      "codename": "view_task"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 33,
-    "fields": {
-      "name": "Can add status",
-      "content_type": 9,
-      "codename": "add_status"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 34,
-    "fields": {
-      "name": "Can change status",
-      "content_type": 9,
-      "codename": "change_status"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 35,
-    "fields": {
-      "name": "Can delete status",
-      "content_type": 9,
-      "codename": "delete_status"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 36,
-    "fields": {
-      "name": "Can view status",
-      "content_type": 9,
-      "codename": "view_status"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 37,
-    "fields": {
-      "name": "Can add project",
-      "content_type": 10,
-      "codename": "add_project"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 38,
-    "fields": {
-      "name": "Can change project",
-      "content_type": 10,
-      "codename": "change_project"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 39,
-    "fields": {
-      "name": "Can delete project",
-      "content_type": 10,
-      "codename": "delete_project"
-    }
-  },
-  {
-    "model": "auth.permission",
-    "pk": 40,
-    "fields": {
-      "name": "Can view project",
-      "content_type": 10,
-      "codename": "view_project"
-    }
-  },
-  {
-    "model": "auth.user",
-    "pk": 1,
-    "fields": {
-      "password": "pbkdf2_sha256$390000$JG08mK3sFlsUh7c5ycDLz1$2gTbPIVCXy42/kVwWVSXWSqMabkQoNO7yDWrBJzVo7s=",
-      "last_login": "2023-03-10T12:46:18.290Z",
-      "is_superuser": true,
-      "username": "bob",
-      "first_name": "",
-      "last_name": "",
-      "email": "",
-      "is_staff": true,
-      "is_active": true,
-      "date_joined": "2023-03-10T12:45:56.035Z",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "auth.user",
-    "pk": 2,
-    "fields": {
-      "password": "pbkdf2_sha256$390000$kV93gij9QI2RciiQdffG0W$yjdltub1FBHMhZtRU1pCFjSB02iSjd6gXvFgefE4hpo=",
-      "last_login": null,
-      "is_superuser": false,
-      "username": "John",
-      "first_name": "",
-      "last_name": "",
-      "email": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2023-03-10T12:46:35.472Z",
-      "groups": [],
-      "user_permissions": []
-    }
+{
+  "model": "webapp.task",
+  "pk": 7,
+  "fields": {
+    "status": 1,
+    "project": 2,
+    "text": "sasd",
+    "detail_text": "sdfsd",
+    "iis_deleted": true,
+    "create_at": "2023-03-10T13:11:01.800Z",
+    "update_at": null,
+    "deleted_at": "2023-03-10",
+    "teg": [
+      1
+    ]
   }
+},
+{
+  "model": "webapp.task",
+  "pk": 8,
+  "fields": {
+    "status": 1,
+    "project": 3,
+    "text": "asdd",
+    "detail_text": "sdfsfdssdsf",
+    "iis_deleted": true,
+    "create_at": "2023-03-10T13:13:52.569Z",
+    "update_at": null,
+    "deleted_at": "2023-03-10",
+    "teg": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 9,
+  "fields": {
+    "status": 2,
+    "project": 2,
+    "text": "sdfff",
+    "detail_text": "sdfffffff",
+    "iis_deleted": true,
+    "create_at": "2023-03-10T13:14:36.562Z",
+    "update_at": null,
+    "deleted_at": "2023-03-20",
+    "teg": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 10,
+  "fields": {
+    "status": 3,
+    "project": 1,
+    "text": "sdssssss",
+    "detail_text": "fdddddd",
+    "iis_deleted": true,
+    "create_at": "2023-03-10T13:14:50.461Z",
+    "update_at": null,
+    "deleted_at": "2023-03-20",
+    "teg": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 11,
+  "fields": {
+    "status": 3,
+    "project": 3,
+    "text": "aaaaaaaaax",
+    "detail_text": "ssasa",
+    "iis_deleted": true,
+    "create_at": "2023-03-10T13:15:31.270Z",
+    "update_at": null,
+    "deleted_at": "2023-03-10",
+    "teg": []
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 12,
+  "fields": {
+    "status": 1,
+    "project": 2,
+    "text": "asdm",
+    "detail_text": "sdfsdsdssds",
+    "iis_deleted": true,
+    "create_at": "2023-03-13T09:19:53.662Z",
+    "update_at": null,
+    "deleted_at": "2023-03-20",
+    "teg": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 13,
+  "fields": {
+    "status": 1,
+    "project": 3,
+    "text": "bnbbmm",
+    "detail_text": "sdfsds fdsdfdfgddfgd fgdd",
+    "iis_deleted": false,
+    "create_at": "2023-03-20T14:42:33.579Z",
+    "update_at": null,
+    "deleted_at": null,
+    "teg": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 14,
+  "fields": {
+    "status": 3,
+    "project": 4,
+    "text": "jghj1",
+    "detail_text": "nbmnbmmnb",
+    "iis_deleted": false,
+    "create_at": "2023-03-20T15:39:08.409Z",
+    "update_at": null,
+    "deleted_at": null,
+    "teg": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 1,
+  "fields": {
+    "name": "New"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 2,
+  "fields": {
+    "name": "In Progress"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 3,
+  "fields": {
+    "name": "Done"
+  }
+},
+{
+  "model": "webapp.teg",
+  "pk": 1,
+  "fields": {
+    "name": "Task"
+  }
+},
+{
+  "model": "webapp.teg",
+  "pk": 2,
+  "fields": {
+    "name": "Bug"
+  }
+},
+{
+  "model": "webapp.teg",
+  "pk": 3,
+  "fields": {
+    "name": "Enhancement"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 1,
+  "fields": {
+    "start_at": "2023-03-02",
+    "end_at": "2023-03-03",
+    "name": "ВДВ",
+    "text_project": "ываывы ываавапвпавав вы авасчсмчсчв выв ывы2",
+    "iis_deleted": true,
+    "deleted_project_at": "2023-03-10",
+    "users": []
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 2,
+  "fields": {
+    "start_at": "2023-03-15",
+    "end_at": "2023-03-23",
+    "name": "ASD",
+    "text_project": "fd fgdgfdfdfgdf dg fdgfgfghfh gfhggdfsd",
+    "iis_deleted": false,
+    "deleted_project_at": null,
+    "users": []
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 3,
+  "fields": {
+    "start_at": "2023-03-01",
+    "end_at": "2023-03-03",
+    "name": "GHJ",
+    "text_project": "dfgdgd gfg hfdsdsdfsdfsdsdfsfd sdvdbvxvcxcx cvdfg",
+    "iis_deleted": false,
+    "deleted_project_at": null,
+    "users": [
+      9
+    ]
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 4,
+  "fields": {
+    "start_at": "2023-03-02",
+    "end_at": "2023-03-17",
+    "name": "VBN",
+    "text_project": "asadsasadaasadasa sasdsf",
+    "iis_deleted": true,
+    "deleted_project_at": "2023-03-10",
+    "users": []
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 5,
+  "fields": {
+    "start_at": "2023-03-16",
+    "end_at": "2023-03-19",
+    "name": "jjj",
+    "text_project": "dsfdsdsdsfds",
+    "iis_deleted": true,
+    "deleted_project_at": "2023-03-16",
+    "users": []
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 6,
+  "fields": {
+    "start_at": "2023-03-11",
+    "end_at": "2023-03-26",
+    "name": "jjj",
+    "text_project": "dsfdsfsdsfd",
+    "iis_deleted": true,
+    "deleted_project_at": "2023-03-20",
+    "users": []
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 7,
+  "fields": {
+    "start_at": "2023-03-02",
+    "end_at": "2023-03-21",
+    "name": "Pop",
+    "text_project": "dsads asdfsdfsd sdfgsasasad",
+    "iis_deleted": false,
+    "deleted_project_at": null,
+    "users": [
+      1,
+      8,
+      9
+    ]
+  }
+}
 ]
