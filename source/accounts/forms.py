@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-from accounts.models import Profile
+
 from django.urls import reverse
 from django.views.generic import UpdateView
 
@@ -32,10 +32,8 @@ class CustomUserCreation(forms.ModelForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.set_password(self.cleaned_data.get('password'))
-        user.groups.add('user')
         if commit:
             user.save()
-            Profile.objects.get_or_create(user=user)
         return user
 
 
@@ -50,10 +48,10 @@ class UserChangeForm(forms.ModelForm):
         labels = {'first_name': 'Имя', 'last_name': 'Фамилия', 'email': 'Почта'}
 
 
-class ProfileChangeForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = ('avatar', 'birth_date')
+
+
+
+
 
 
 

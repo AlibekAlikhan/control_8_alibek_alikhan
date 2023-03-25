@@ -12,9 +12,11 @@ from accounts.forms import CustomUserCreation
 
 from accounts.forms import UserAdd
 
-from webapp.models import Project
+from webapp.models import Comment
 
-from accounts.forms import ProfileChangeForm, UserChangeForm
+from accounts.forms import UserChangeForm
+
+
 
 
 class LoginView(TemplateView):
@@ -67,7 +69,7 @@ class AddUserView(UserPassesTestMixin, CreateView):
     success_url = '/'
 
     def test_func(self):
-        project_user = Project.objects.get(pk=self.kwargs.get('pk'))
+        project_user = Comment.objects.get(pk=self.kwargs.get('pk'))
         users = project_user.users.all()
         for i in users:
             if self.request.user == i:
@@ -81,7 +83,7 @@ class AddUserView(UserPassesTestMixin, CreateView):
     def post(self, request, *args, **kwargs):
         form = self.get_user_form()
         if form.is_valid():
-            project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
+            project = get_object_or_404(Comment, pk=self.kwargs.get('pk'))
             project.users.add(form.cleaned_data.get('user'))
             return redirect(self.success_url)
         context = {'form': form}
@@ -118,17 +120,6 @@ class ProfileView(LoginRequiredMixin, DetailView):
     paginate_related_by = 3
     paginate_related_orphans = 0
 
-    # def get_context_data(self, **kwargs):
-    #     articles = self.model
-    #     paginator = Paginator(articles, self.paginate_related_by,
-    #                           orphans=self.paginate_related_orphans)
-    #     page_number = self.request.GET.get('page', 1)
-    #     page = paginator.get_page(page_number)
-    #     kwargs['page_obj'] = page
-    #     kwargs['articles'] = page.object_list
-    #     kwargs['is_paginated'] = page.has_other_pages()
-    #     return super().get_context_data(**kwargs)
-
 
 class UserChangeView(UpdateView):
     model = get_user_model()
@@ -136,35 +127,24 @@ class UserChangeView(UpdateView):
     template_name = 'user_change.html'
     context_object_name = 'user_obj'
 
-    def get_context_data(self, **kwargs):
-        if 'profile_form' not in kwargs:
-            kwargs['profile_form'] = self.get_profile_form()
-        return super().get_context_data(**kwargs)
-
     def get_success_url(self):
         return reverse('profile', kwargs={'pk': self.object.pk})
-
-    def get_profile_form(self):
-        form_kwargs = {'instance': self.object.profile}
-        if self.request.method == 'POST':
-            form_kwargs['data'] = self.request.POST
-            form_kwargs['files'] = self.request.FILES
-        return ProfileChangeForm(**form_kwargs)
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
         form = self.get_form()
-        profile_form = self.get_profile_form()
 
-        if form.is_valid() and profile_form.is_valid():
-            return self.form_valid(form, profile_form)
-        return self.form_invalid(form, profile_form)
+        if form.is_valid():
+            return self.form_valid(form)
+        return self.form_invalid(form)
 
-    def form_invalid(self, form, profile_form):
-        context = self.get_context_data(form=form, profile_form=profile_form)
+    def form_invalid(self, form):
+        context = self.get_context_data(form=form)
         return self.render_to_response(context)
 
-    def form_valid(self, form, profile_form):
+    def form_valid(self, form):
         response = super().form_valid(form)
-        profile_form.save()
         return response
+
+
+
