@@ -3,9 +3,9 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.core.validators import MinLengthValidator, MaxLengthValidator, BaseValidator
 
-from webapp.models import Task
+from webapp.models import Product
 
-from webapp.models import Project
+from webapp.models import Comment
 
 
 class CustomLenValidator(BaseValidator):
@@ -20,40 +20,31 @@ class CustomLenValidator(BaseValidator):
         return len(value)
 
 
-class ArticleForm(forms.ModelForm):
-    text = forms.CharField(
-        validators=(MinLengthValidator(limit_value=2, message='Введите больше 2 символов'), CustomLenValidator(30)))
-    detail_text = forms.CharField(
-        validators=(MinLengthValidator(limit_value=1, message='Введите больше 1 символов'), CustomLenValidator(100)))
+class ProductForm(forms.ModelForm):
 
     class Meta:
-        model = Task
-        fields = ("status", "teg", "text", "detail_text", "project")
+        model = Product
+        fields = ("category", "name", "text", "image_url")
         labels = {
-            'status': 'Статус',
+            'category': 'Категория',
+            'name': 'Имя',
             'text': 'Текст',
-            'teg': 'Тег',
-            'project': 'Проект',
-            'detail_text': 'Детальный текст',
+            'image_url': 'Фото',
         }
 
 
-class ProjectForm(forms.ModelForm):
-    start_at = forms.DateField(label='Время начала', widget=forms.DateInput(format='%d-%m-%Y', attrs={'type': 'date'}),
-                               required=False)
-    end_at = forms.DateField(label='Время конца', widget=forms.DateInput(format='%d-%m-%Y', attrs={'type': 'date'}),
-                               required=False)
+class CommentForm(forms.ModelForm):
     class Meta:
-        model = Project
-        fields = ("start_at", "end_at", "name", "text_project", "users")
+        model = Comment
+        fields = ("text_comment", "grade")
         labels = {
-            'start_at': 'Время начала',
-            'end_at': 'Время конца',
-            'name': 'Название',
-            'text_project': 'Текст',
-            "users": "Пользователь"
+            'text_comment': 'Коментарий',
+            'grade': 'Оценка'
         }
 
 
 class SearchForm(forms.Form):
     search = forms.CharField(max_length=20, required=False, label='Найти')
+
+
+

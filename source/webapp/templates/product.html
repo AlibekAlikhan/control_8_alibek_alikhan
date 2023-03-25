@@ -19,22 +19,28 @@
 {% endblock %}
 {% block content %}
     {% for task in tasks %}
-        <div class="card" style="margin-top: 25px">
-            <h5 class="card-header">{{ task.category }}</h5>
+        <div class="card" style="width: 18rem;">
+            {% if task.image_url %}
+                <img src="{{ task.image_url }}" class="card-img-top" alt="">
+            {% endif %}
+            {% if not task.image_url %}
+                <img src="{{  }}" class="card-img-top" alt="">
+            {% endif %}
             <div class="card-body">
-                <h5 class="card-title">{{ task.name }}t</h5>
-                <p class="card-text">{{ task.text }}</p>
+                <h5 class="card-title">{{ task.category }}e</h5>
+                <p class="card-text">{{ task.name }}</p>
                 <a href="{% url 'detail_view' task.pk %}" class="btn btn-primary">Task detail info</a>
                 {% if user.is_authenticated %}
                     <form action="{% url 'to_comment' task.pk %}" method="post">
                         {% load django_bootstrap5 %}
                         {% csrf_token %}
                         {% bootstrap_form favorit_form %}
-                            <h1><input type="submit" value="Comment input"></h1>
+                        <h1><input type="submit" class="btn btn-primary" value="Comment add"></h1>
                     </form>
                 {% endif %}
             </div>
         </div>
+
     {% endfor %}
     {% if is_paginated %}
         {% include 'partial/paginate.html' %}

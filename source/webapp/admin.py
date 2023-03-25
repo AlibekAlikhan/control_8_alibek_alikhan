@@ -1,29 +1,17 @@
 from django.contrib import admin
 
-from webapp.models import Task, Status, Teg
+from webapp.models import Product
 
-from webapp.models import Project
+from webapp.models import Comment
 
 
 # Register your models here.
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ("id", "status", "create_at")
-    list_filter = ("id", "status", "create_at")
-    search_fields = ("status", "text")
-    filter = ("text", "status", "create_at")
+    list_display = ("id", "create_at")
+    list_filter = ("id", "create_at")
+    search_fields = ("text",)
+    filter = ("text", "create_at")
     readonly_fields = ("id", "create_at")
-
-
-class StatusAdmin(admin.ModelAdmin):
-    search_fields = ["status"]
-    filter = ["status"]
-    readonly_fields = ["id"]
-
-
-class TegAdmin(admin.ModelAdmin):
-    search_fields = ["teg"]
-    filter = ["teg"]
-    readonly_fields = ["id"]
 
 
 class ProjectAdmin(admin.ModelAdmin):
@@ -32,7 +20,5 @@ class ProjectAdmin(admin.ModelAdmin):
     readonly_fields = ["id"]
 
 
-admin.site.register(Status, StatusAdmin)
-admin.site.register(Teg, TegAdmin)
-admin.site.register(Task, ArticleAdmin)
-admin.site.register(Project, ProjectAdmin)
+admin.site.register(Product, ArticleAdmin)
+admin.site.register(Comment, ProjectAdmin)
