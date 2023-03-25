@@ -40,7 +40,9 @@ class ProjectUpdateView(UserPassesTestMixin, LoginRequiredMixin, UpdateView):
     context_key = 'project'
 
     def test_func(self):
-        return self.request.user.groups.filter(name__in=['Project Manager']).exists()
+        return self.request.user.groups.filter(
+            name__in=['Project Manager']).exists() and self.request.user in Project.objects.get(
+            pk=self.kwargs['pk']).users.all()
 
     def get_success_url(self):
         return reverse_lazy('detail_project', kwargs={'pk': self.object.pk})
@@ -53,7 +55,9 @@ class ProjectDeleteView(UserPassesTestMixin, LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('project_index')
 
     def test_func(self):
-        return self.request.user.groups.filter(name__in=['Project Manager']).exists()
+        return self.request.user.groups.filter(
+            name__in=['Project Manager']).exists() and self.request.user in Project.objects.get(
+            pk=self.kwargs['pk']).users.all()
 
     def get(self, request, *args, **kwargs):
         return self.delete(request)

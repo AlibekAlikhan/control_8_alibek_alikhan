@@ -9,7 +9,7 @@
     <h2>Точно хочешь удалить</h2>
     <h2>{{project.name}}</h2>
     <h2>{{project.text_project}}</h2>
-    <form action="{% url 'confirm' project.pk %}" method="post">
+    <form action="{% url 'project_delit' project.pk %}" method="post">
         {%csrf_token%}
     <p><input type="submit" value="Удалить"></p>
     </form>

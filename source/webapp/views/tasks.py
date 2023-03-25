@@ -11,6 +11,8 @@ from webapp.models import Task
 
 from webapp.forms import SearchForm
 
+from webapp.models import Project
+
 
 class ArticleView(ListView):
     template_name = "tasks.html"
@@ -64,10 +66,12 @@ class ArticleUpdateView(UserPassesTestMixin, LoginRequiredMixin, UpdateView):
     template_name = "task_update.html"
     form_class = ArticleForm
     context_object_name = 'task'
-
+    # Project.objects.get(
+    #     id=self.kwargs['pk'].
+    # )
     def test_func(self):
-        if self.request.user == "manager" or self.request.user == "lead":
-            return self.request.user.groups.filter(name__in=['Project Manager', 'Team Lead', 'Developer']).exists()
+        tasks = Task.objects.get(pk=self.kwargs['pk'])
+        return self.request.user.groups.filter(name__in=['Project Manager']).exists() and self.request.user in tasks.project.users.all()
 
     def get_success_url(self):
         return reverse_lazy('detail_view', kwargs={'pk': self.object.pk})

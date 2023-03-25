@@ -5,6 +5,7 @@
         <a class="btn btn-primary" href="{% url 'project_index' %}" role="button" style="margin-right: 20px">Project
             List</a>
         {% if user.is_authenticated %}
+            <a class="btn btn-primary" href="{% url 'profile' user.pk %}" role="button" style="margin-right: 20px">Profile</a>
             <a class="btn btn-primary" href="{% url 'create_project' %}" role="button" style="margin-right: 20px">Add
                 project</a>
             <a class="btn btn-primary" href="{% url 'create_article' %}" role="button" style="margin-right: 20px">Add

@@ -1,0 +1,21 @@
+{% if is_paginated %}
+    {% include 'partial/paginate.html' %}
+{% endif %}
+{% for article in articles %}
+    <div class="box">
+        <h3><a href="{% url "article_detail" article.pk %}">{{ article.title }}</a></h3>
+        <p>Статус: ({{ article.get_status_display}})</p>
+        <p>Published at: {{ article.publish_at|date:"d.m.Y H:i:s" }}</p>
+        {% if perms.webapp.change_article or article.author == request.user %}
+            <p><a href="{% url 'article_update' article.pk %}" class="btn btn-success">Update</a></p>
+        {% endif %}
+        {% if perms.webapp.delete_article or article.author == request.user %}
+            <p><a href="{% url 'article_delete' article.pk %}" class="btn btn-danger">Delete</a></p>
+        {% endif %}
+    </div>
+{% empty %}
+    <h2 class="text-center">Нет статей</h2>
+{% endfor %}
+{% if is_paginated %}
+    {% include 'partial/paginate.html' %}
+{% endif %}
