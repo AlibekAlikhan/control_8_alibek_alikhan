@@ -2,12 +2,8 @@
 {% block title %}Home{% endblock %}
 {% block navbar %}
     <div class="navbar">
-        <a class="btn btn-primary" href="{% url 'project_index' %}" role="button" style="margin-right: 20px">Project
-            List</a>
         {% if user.is_authenticated %}
             <a class="btn btn-primary" href="{% url 'profile' user.pk %}" role="button" style="margin-right: 20px">Profile</a>
-            <a class="btn btn-primary" href="{% url 'create_project' %}" role="button" style="margin-right: 20px">Add
-                project</a>
             <a class="btn btn-primary" href="{% url 'create_article' %}" role="button" style="margin-right: 20px">Add
                 tasks</a>
             <form action="{% url 'logout' %}" method="post">
@@ -22,14 +18,21 @@
     </div>
 {% endblock %}
 {% block content %}
-    {% include 'partial/search.html' %}
     {% for task in tasks %}
         <div class="card" style="margin-top: 25px">
-            <h5 class="card-header">{{ task.status }}</h5>
+            <h5 class="card-header">{{ task.category }}</h5>
             <div class="card-body">
-                <h5 class="card-title">{{ task.create_at }}t</h5>
+                <h5 class="card-title">{{ task.name }}t</h5>
                 <p class="card-text">{{ task.text }}</p>
                 <a href="{% url 'detail_view' task.pk %}" class="btn btn-primary">Task detail info</a>
+                {% if user.is_authenticated %}
+                    <form action="{% url 'to_comment' task.pk %}" method="post">
+                        {% load django_bootstrap5 %}
+                        {% csrf_token %}
+                        {% bootstrap_form favorit_form %}
+                            <h1><input type="submit" value="Comment input"></h1>
+                    </form>
+                {% endif %}
             </div>
         </div>
     {% endfor %}

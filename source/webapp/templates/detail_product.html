@@ -16,7 +16,22 @@
     </div>
 {% endblock %}
 {% block content %}
-    <h2>{{ task.status }}</h2>
-    <h2>{% for teg in task.teg.all %} {{ teg }} {% endfor %}</h2>
-    <h2>{{ task.detail_text }}</h2>
+    <img src="{{ task.image_url }}" alt="">
+    <h2>{{ task.category }}</h2>
+    <h2>{{ task.text }}</h2>
+    <h2>{{ task.name }}</h2>
+    {% for pj in comment %}
+        <div class="card" style="margin-top: 25px">
+            <h5 class="card-title"> Пользователь {{ pj.users }}t</h5>
+            <h5 class="card-header">{{ pj.grade }}</h5>
+            <div class="card-body">
+                <h5 class="card-title">{{ pj.text_comment }}t</h5>
+                {% if request.user == pj.users %}
+                    <a class="btn btn-primary" href="{% url 'project_update' pj.pk %}" role="button"
+                       style="margin-right: 20px">Update</a>
+                    <a class="btn btn-primary" href="{% url 'project_delit' pj.pk %}" role="button">Delete</a>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}

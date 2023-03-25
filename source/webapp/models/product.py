@@ -1,15 +1,23 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models import TextChoices
 from django.utils import timezone
 
 
-class Task(models.Model):
-    status = models.ForeignKey('webapp.Status', related_name='tegs', on_delete=models.CASCADE, verbose_name="Статус")
-    project = models.ForeignKey('webapp.Project', related_name='tegs', on_delete=models.CASCADE, verbose_name="Проект")
-    teg = models.ManyToManyField(to="webapp.Teg", related_name="tegs", blank=True)
-    text = models.TextField(max_length=3000, null=True, verbose_name="Текст")
-    detail_text = models.TextField(max_length=3000, null=True, verbose_name="Детальный текст")
+class CategoryChoice(TextChoices):
+    OTHER = 'other', 'разное'
+    TECHNIQUE = 'technique', 'техника'
+    CLOTH = 'cloth', 'одежда'
+    TOYS = 'toys', 'игрушки'
+
+
+class Product(models.Model):
+    category = models.CharField(verbose_name="Категория", choices=CategoryChoice.choices, max_length=20,
+                                default=CategoryChoice.OTHER)
+    name = models.CharField(max_length=100, null=False, verbose_name="Имя")
+    text = models.TextField(max_length=2000, null=True, verbose_name="Текст")
     iis_deleted = models.BooleanField(verbose_name="удалено", null=False, default=False)
+    image_url = models.TextField(max_length=3000, null=True, verbose_name="Фото")
     create_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата добавления")
     update_at = models.DateTimeField(verbose_name="Дата обновления", null=True, default=None)
     deleted_at = models.DateField(verbose_name="Дата удаления", null=True, default=None)
@@ -24,4 +32,4 @@ class Task(models.Model):
         self.save()
 
     def __str__(self):
-        return f"{self.status} - {self.text}"
+        return f"{self.category} - {self.text}"

@@ -1,4 +1,2 @@
-from .tasks import Task
-from .status import Status
-from .teg import Teg
-from .project import Project
+from .product import Product
+from .comment import Comment
