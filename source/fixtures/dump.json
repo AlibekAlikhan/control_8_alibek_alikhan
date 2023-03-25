@@ -1,275 +1,206 @@
 [
 {
-  "model": "webapp.task",
-  "pk": 7,
-  "fields": {
-    "status": 1,
-    "project": 2,
-    "text": "sasd",
-    "detail_text": "sdfsd",
-    "iis_deleted": true,
-    "create_at": "2023-03-10T13:11:01.800Z",
-    "update_at": null,
-    "deleted_at": "2023-03-10",
-    "teg": [
-      1
-    ]
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 8,
-  "fields": {
-    "status": 1,
-    "project": 3,
-    "text": "asdd",
-    "detail_text": "sdfsfdssdsf",
-    "iis_deleted": true,
-    "create_at": "2023-03-10T13:13:52.569Z",
-    "update_at": null,
-    "deleted_at": "2023-03-10",
-    "teg": [
-      2
-    ]
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 9,
-  "fields": {
-    "status": 2,
-    "project": 2,
-    "text": "sdfff",
-    "detail_text": "sdfffffff",
-    "iis_deleted": true,
-    "create_at": "2023-03-10T13:14:36.562Z",
-    "update_at": null,
-    "deleted_at": "2023-03-20",
-    "teg": [
-      3
-    ]
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 10,
-  "fields": {
-    "status": 3,
-    "project": 1,
-    "text": "sdssssss",
-    "detail_text": "fdddddd",
-    "iis_deleted": true,
-    "create_at": "2023-03-10T13:14:50.461Z",
-    "update_at": null,
-    "deleted_at": "2023-03-20",
-    "teg": [
-      3
-    ]
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 11,
-  "fields": {
-    "status": 3,
-    "project": 3,
-    "text": "aaaaaaaaax",
-    "detail_text": "ssasa",
-    "iis_deleted": true,
-    "create_at": "2023-03-10T13:15:31.270Z",
-    "update_at": null,
-    "deleted_at": "2023-03-10",
-    "teg": []
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 12,
-  "fields": {
-    "status": 1,
-    "project": 2,
-    "text": "asdm",
-    "detail_text": "sdfsdsdssds",
-    "iis_deleted": true,
-    "create_at": "2023-03-13T09:19:53.662Z",
-    "update_at": null,
-    "deleted_at": "2023-03-20",
-    "teg": [
-      1
-    ]
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 13,
-  "fields": {
-    "status": 1,
-    "project": 3,
-    "text": "bnbbmm",
-    "detail_text": "sdfsds fdsdfdfgddfgd fgdd",
-    "iis_deleted": false,
-    "create_at": "2023-03-20T14:42:33.579Z",
-    "update_at": null,
-    "deleted_at": null,
-    "teg": [
-      2
-    ]
-  }
-},
-{
-  "model": "webapp.task",
-  "pk": 14,
-  "fields": {
-    "status": 3,
-    "project": 4,
-    "text": "jghj1",
-    "detail_text": "nbmnbmmnb",
-    "iis_deleted": false,
-    "create_at": "2023-03-20T15:39:08.409Z",
-    "update_at": null,
-    "deleted_at": null,
-    "teg": [
-      3
-    ]
-  }
-},
-{
-  "model": "webapp.status",
+  "model": "webapp.product",
   "pk": 1,
   "fields": {
-    "name": "New"
-  }
-},
-{
-  "model": "webapp.status",
-  "pk": 2,
-  "fields": {
-    "name": "In Progress"
-  }
-},
-{
-  "model": "webapp.status",
-  "pk": 3,
-  "fields": {
-    "name": "Done"
-  }
-},
-{
-  "model": "webapp.teg",
-  "pk": 1,
-  "fields": {
-    "name": "Task"
-  }
-},
-{
-  "model": "webapp.teg",
-  "pk": 2,
-  "fields": {
-    "name": "Bug"
-  }
-},
-{
-  "model": "webapp.teg",
-  "pk": 3,
-  "fields": {
-    "name": "Enhancement"
-  }
-},
-{
-  "model": "webapp.project",
-  "pk": 1,
-  "fields": {
-    "start_at": "2023-03-02",
-    "end_at": "2023-03-03",
-    "name": "ВДВ",
-    "text_project": "ываывы ываавапвпавав вы авасчсмчсчв выв ывы2",
-    "iis_deleted": true,
-    "deleted_project_at": "2023-03-10",
-    "users": []
-  }
-},
-{
-  "model": "webapp.project",
-  "pk": 2,
-  "fields": {
-    "start_at": "2023-03-15",
-    "end_at": "2023-03-23",
-    "name": "ASD",
-    "text_project": "fd fgdgfdfdfgdf dg fdgfgfghfh gfhggdfsd",
+    "category": "technique",
+    "name": "asda",
+    "text": "asdasasasa",
     "iis_deleted": false,
-    "deleted_project_at": null,
-    "users": []
+    "image_url": "daa",
+    "create_at": "2023-03-25T11:40:45.922Z",
+    "update_at": null,
+    "deleted_at": null
   }
 },
 {
-  "model": "webapp.project",
+  "model": "webapp.product",
+  "pk": 2,
+  "fields": {
+    "category": "technique",
+    "name": "adsads",
+    "text": "dssdsf",
+    "iis_deleted": false,
+    "image_url": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg",
+    "create_at": "2023-03-25T11:42:21.361Z",
+    "update_at": null,
+    "deleted_at": null
+  }
+},
+{
+  "model": "webapp.product",
   "pk": 3,
   "fields": {
-    "start_at": "2023-03-01",
-    "end_at": "2023-03-03",
-    "name": "GHJ",
-    "text_project": "dfgdgd gfg hfdsdsdfsdfsdsdfsfd sdvdbvxvcxcx cvdfg",
+    "category": "toys",
+    "name": "dasasa",
+    "text": "asadsfsfssd",
     "iis_deleted": false,
-    "deleted_project_at": null,
-    "users": [
-      9
-    ]
+    "image_url": "data:image/jpeg;base64,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",
+    "create_at": "2023-03-25T11:42:46.574Z",
+    "update_at": null,
+    "deleted_at": null
   }
 },
 {
-  "model": "webapp.project",
+  "model": "webapp.product",
   "pk": 4,
   "fields": {
-    "start_at": "2023-03-02",
-    "end_at": "2023-03-17",
-    "name": "VBN",
-    "text_project": "asadsasadaasadasa sasdsf",
-    "iis_deleted": true,
-    "deleted_project_at": "2023-03-10",
-    "users": []
+    "category": "toys",
+    "name": "dsasa",
+    "text": "asasdasa",
+    "iis_deleted": false,
+    "image_url": "https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111.jpg",
+    "create_at": "2023-03-25T12:06:12.764Z",
+    "update_at": null,
+    "deleted_at": null
   }
 },
 {
-  "model": "webapp.project",
+  "model": "webapp.product",
   "pk": 5,
   "fields": {
-    "start_at": "2023-03-16",
-    "end_at": "2023-03-19",
-    "name": "jjj",
-    "text_project": "dsfdsdsdsfds",
-    "iis_deleted": true,
-    "deleted_project_at": "2023-03-16",
-    "users": []
+    "category": "cloth",
+    "name": "fhfgf",
+    "text": "sdsdsa",
+    "iis_deleted": false,
+    "image_url": "asdasssdfsdsa",
+    "create_at": "2023-03-25T12:06:35.976Z",
+    "update_at": null,
+    "deleted_at": null
   }
 },
 {
-  "model": "webapp.project",
+  "model": "webapp.product",
   "pk": 6,
   "fields": {
-    "start_at": "2023-03-11",
-    "end_at": "2023-03-26",
-    "name": "jjj",
-    "text_project": "dsfdsfsdsfd",
-    "iis_deleted": true,
-    "deleted_project_at": "2023-03-20",
-    "users": []
+    "category": "cloth",
+    "name": "asda",
+    "text": "sdasas",
+    "iis_deleted": false,
+    "image_url": "ffff",
+    "create_at": "2023-03-25T12:07:39.855Z",
+    "update_at": null,
+    "deleted_at": null
   }
 },
 {
-  "model": "webapp.project",
+  "model": "webapp.comment",
+  "pk": 1,
+  "fields": {
+    "users": 1,
+    "product": 1,
+    "text_comment": "ass",
+    "grade": 2
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 2,
+  "fields": {
+    "users": 1,
+    "product": 3,
+    "text_comment": "sad",
+    "grade": 7
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 3,
+  "fields": {
+    "users": 3,
+    "product": 5,
+    "text_comment": "dsfds",
+    "grade": 6
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 5,
+  "fields": {
+    "users": 1,
+    "product": 6,
+    "text_comment": "adsas",
+    "grade": 3
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 6,
+  "fields": {
+    "users": 1,
+    "product": 5,
+    "text_comment": "dsas",
+    "grade": 9
+  }
+},
+{
+  "model": "webapp.comment",
   "pk": 7,
   "fields": {
-    "start_at": "2023-03-02",
-    "end_at": "2023-03-21",
-    "name": "Pop",
-    "text_project": "dsads asdfsdfsd sdfgsasasad",
-    "iis_deleted": false,
-    "deleted_project_at": null,
-    "users": [
-      1,
-      8,
-      9
-    ]
+    "users": 1,
+    "product": 4,
+    "text_comment": "dfgd",
+    "grade": 7
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 8,
+  "fields": {
+    "users": 1,
+    "product": 3,
+    "text_comment": "adsa",
+    "grade": 4
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 9,
+  "fields": {
+    "users": 1,
+    "product": 2,
+    "text_comment": "dfgdf",
+    "grade": 7
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 10,
+  "fields": {
+    "users": 3,
+    "product": 6,
+    "text_comment": "dfdg",
+    "grade": 7
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 11,
+  "fields": {
+    "users": 3,
+    "product": 5,
+    "text_comment": "fsdfsd",
+    "grade": 5
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 12,
+  "fields": {
+    "users": 3,
+    "product": 3,
+    "text_comment": "ghf",
+    "grade": 2
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 13,
+  "fields": {
+    "users": 3,
+    "product": 2,
+    "text_comment": "gfgf",
+    "grade": 4
   }
 }
 ]

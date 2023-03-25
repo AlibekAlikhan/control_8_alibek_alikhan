@@ -25,7 +25,7 @@
             <h5 class="card-title"> Пользователь {{ pj.users }}t</h5>
             <h5 class="card-header">{{ pj.grade }}</h5>
             <div class="card-body">
-                <h5 class="card-title">{{ pj.text_comment }}t</h5>
+                <h5 class="card-title">{{ pj.text_comment }}</h5>
                 {% if request.user == pj.users %}
                     <a class="btn btn-primary" href="{% url 'project_update' pj.pk %}" role="button"
                        style="margin-right: 20px">Update</a>

@@ -22,12 +22,11 @@
         <div class="card" style="width: 18rem;">
             {% if task.image_url %}
                 <img src="{{ task.image_url }}" class="card-img-top" alt="">
-            {% endif %}
-            {% if not task.image_url %}
-                <img src="{{  }}" class="card-img-top" alt="">
+            {% else %}
+                <i class="bi bi-person-circle"></i>
             {% endif %}
             <div class="card-body">
-                <h5 class="card-title">{{ task.category }}e</h5>
+                <h5 class="card-title">{{ task.category }}</h5>
                 <p class="card-text">{{ task.name }}</p>
                 <a href="{% url 'detail_view' task.pk %}" class="btn btn-primary">Task detail info</a>
                 {% if user.is_authenticated %}
